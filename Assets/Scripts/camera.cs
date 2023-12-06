@@ -10,6 +10,9 @@ public class camera : MonoBehaviour
     private float idleThreshold = 15f;  // アイドルとみなす閾値（秒）
     private bool isTimerRunning = true;  // タイマーが動作中かどうか
 
+    public Transform targetPlayer;  // プレイヤーのTransformを格納する変数
+    public float yOffset = -10.0f;     // プレイヤーからのY軸のオフセット
+
     private void Awake()
     {
         // フレームレートを設定
@@ -104,6 +107,12 @@ public class camera : MonoBehaviour
         {
             Application.Quit();
         }
-        
+
+        if (targetPlayer.position.y > 0)
+        {
+            if(targetPlayer.position.y < 3)
+            // プレイヤーの位置にカメラを追従させる（Y軸のみ）
+            transform.position = new Vector3(transform.position.x, targetPlayer.position.y, transform.position.z);
+        }
     }
 }

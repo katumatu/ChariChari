@@ -7,6 +7,7 @@ public class player : MonoBehaviour
     public float jumpForce = 10f; // ジャンプ力
     private Rigidbody2D rb2d;
     private bool isGrounded;
+    int AJ = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -21,43 +22,94 @@ public class player : MonoBehaviour
         }
 
         isGrounded = true;
+        AJ = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        // 画面がタッチされたかどうかの判定
-        if (Input.GetMouseButton(0))
+        /*if (rb2d.velocity.y < 0.0f)
         {
-            Jump();
+            isGrounded = false;
+        }*/
+        
+        // 画面がタッチされたかどうかの判定
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (isGrounded == false)
+            {
+                AirJump();
+                //Debug.LogError("地面についてないよ");
+            }
+
+            else if (isGrounded == true)
+            {
+                Jump();
+            }    
         }
     }
 
     void OnTriggerEnter2D(Collider2D coll)
     {
-        //弾を破棄する
-        //Destroy(gameObject);
         // ジャンプ中にも接地している場合、ジャンプを許可する
         if (rb2d.velocity.y < 0.01f && isGrounded)
         {
             isGrounded = true;
+            AJ = 0;
         }
         
         isGrounded = true;
+        AJ = 0;
+    }
+
+    void OnCollisionExit2D(Collision2D collision)
+    {
+        isGrounded = false;
+        AJ = 1;
     }
 
     void Jump()
     {
-        // 地面に接触している場合にのみジャンプを許可
-        if (isGrounded == true)
+        
+        /*if (isGrounded == false)
         {
-            rb2d.velocity = new Vector2(rb2d.velocity.x, jumpForce);
-            isGrounded = false; // ジャンプ中は地面にいない状態にする
+            if(AJ == 1)
+            {
+                Debug.LogError("地面についてないよ");
+            }
+
+            if(AJ == 0)
+            {
+                rb2d.velocity = new Vector2(rb2d.velocity.x, jumpForce);
+                AJ = 1;
+                Debug.Log("空ジャンしたよ");
+            }
         }
 
-        if (isGrounded == false)
+        // 地面に接触している場合にのみジャンプを許可
+        if (isGrounded == true)
+        {*/
+            if(AJ == 0)
+            {
+                rb2d.velocity = new Vector2(rb2d.velocity.x, jumpForce);
+                isGrounded = false; // ジャンプ中は地面にいない状態にする
+                Debug.Log("通常ジャンプしたよ");
+            }
+        //}
+    }
+
+    void AirJump()
+    {
+        if(AJ == 2)
         {
             //Debug.LogError("地面についてないよ");
+        }
+
+        if(AJ == 1)
+        {
+            rb2d.velocity = new Vector2(rb2d.velocity.x, jumpForce);
+            AJ = 2;
+            //Debug.Log("空ジャンしたよ");
         }
     }
 }

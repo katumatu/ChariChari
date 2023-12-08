@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class player : MonoBehaviour
 {
@@ -46,6 +48,17 @@ public class player : MonoBehaviour
             {
                 Jump();
             }    
+        }
+
+        //弾の位置が5よりも上に移動していた場合、
+        if (transform.position.y < -6.0f)
+        {
+            SceneManager.LoadScene("Result", LoadSceneMode.Single);
+        }
+
+        if (transform.position.x < -10.0f)
+        {
+            SceneManager.LoadScene("Result", LoadSceneMode.Single);
         }
     }
 

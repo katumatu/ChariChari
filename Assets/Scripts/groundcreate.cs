@@ -11,6 +11,10 @@ public class groundcreate : MonoBehaviour
     {
         //1秒後から、1秒ごとにGenRockメソッドを繰り返し実行する
         InvokeRepeating("GenRock", 1, 1);
+        Instantiate(groundPrefab, new Vector3(-2.0f, 0.0f, 0), Quaternion.identity);
+        Instantiate(groundPrefab, new Vector3(3.0f, -2.0f + 1.0f * Random.value, 0), Quaternion.identity);
+        Instantiate(groundPrefab, new Vector3(8.0f, -3.5f + 1.5f * Random.value, 0), Quaternion.identity);
+        Instantiate(groundPrefab, new Vector3(13.0f, -5.0f + 2.0f * Random.value, 0), Quaternion.identity);
     }
 
     void GenRock()

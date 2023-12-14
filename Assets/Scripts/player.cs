@@ -64,15 +64,21 @@ public class player : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D coll)
     {
+        if (rb2d.velocity.y > 0.0f && AJ >= 1)
+        {
+            isGrounded = false;
+            AJ = 2;
+        }
+
         // ジャンプ中にも接地している場合、ジャンプを許可する
-        if (rb2d.velocity.y < 0.01f && isGrounded)
+        else if (rb2d.velocity.y <= 0.0f )
         {
             isGrounded = true;
             AJ = 0;
         }
         
-        isGrounded = true;
-        AJ = 0;
+        //isGrounded = true;
+        //AJ = 0;
     }
 
     void OnCollisionExit2D(Collision2D collision)
@@ -106,7 +112,7 @@ public class player : MonoBehaviour
             {
                 rb2d.velocity = new Vector2(rb2d.velocity.x, jumpForce);
                 isGrounded = false; // ジャンプ中は地面にいない状態にする
-                Debug.Log("通常ジャンプしたよ");
+                //Debug.Log("通常ジャンプしたよ");
             }
         //}
     }

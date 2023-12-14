@@ -42,7 +42,7 @@ public class SceneMan : MonoBehaviour
                             break;*/
                         case "Result":
                             //ResultSceneからTitleSceneへシーンを切り替える
-                            SceneManager.LoadScene("Game", LoadSceneMode.Single);
+                            SceneManager.LoadScene("titleScene", LoadSceneMode.Single);
                             break;
                         default:
                             break;

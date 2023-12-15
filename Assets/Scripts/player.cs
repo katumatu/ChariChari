@@ -10,6 +10,7 @@ public class player : MonoBehaviour
     private Rigidbody2D rb2d;
     private bool isGrounded;
     int AJ = 0;
+    public static int playerX = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -50,7 +51,6 @@ public class player : MonoBehaviour
             }    
         }
 
-        //弾の位置が5よりも上に移動していた場合、
         if (transform.position.y < -6.0f)
         {
             SceneManager.LoadScene("Result", LoadSceneMode.Single);
@@ -60,6 +60,9 @@ public class player : MonoBehaviour
         {
             SceneManager.LoadScene("Result", LoadSceneMode.Single);
         }
+        
+        playerX = Mathf.FloorToInt(transform.position.x) +3;
+        GameObject.Find("Score").GetComponent<scoreMan>().AddScore();
     }
 
     void OnTriggerEnter2D(Collider2D coll)

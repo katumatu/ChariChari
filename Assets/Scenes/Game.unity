@@ -494,6 +494,51 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &539962311
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 539962313}
+  - component: {fileID: 539962312}
+  m_Layer: 0
+  m_Name: CoinCreater
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &539962312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 539962311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46b731e019adc7c4cbac9b97bbb00923, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coin: {fileID: 4630508109588002979, guid: 1d5db5bcbeb6c0449ad505f6ea70b148, type: 3}
+--- !u!4 &539962313
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 539962311}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 997.3127, y: 596.15643, z: 1.4534605}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &879185979
 GameObject:
   m_ObjectHideFlags: 0
@@ -1074,4 +1119,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpForce: 18
-  jump: {fileID: 8300000, guid: f945a49e987b47d45a94505a93f3c23c, type: 3}
+  jump: {fileID: 8300000, guid: a952fb48bf52dc2408fb1be0e32ff93b, type: 3}
+  images:
+  - {fileID: 21300000, guid: 38f589059d7425f4d8931e342ca9854a, type: 3}
+  - {fileID: 21300000, guid: 9e68b00b5ae7ff54bb4240d35546c48c, type: 3}
+  switchInterval: 1
+  imageSize: {x: 1, y: 1}

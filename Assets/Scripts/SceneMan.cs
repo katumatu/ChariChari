@@ -8,6 +8,8 @@ public class SceneMan : MonoBehaviour
 {
     //マウスイベントの情報を格納するための変数
     PointerEventData pointer;
+    public AudioClip click; //効果音クリップ
+    private float delayTimer; // ディレイの経過時間
 
     //Start is called before the first frame update
     void Start()
@@ -41,8 +43,8 @@ public class SceneMan : MonoBehaviour
                             SceneManager.LoadScene("GameScene", LoadSceneMode.Single);
                             break;*/
                         case "Result":
-                            //ResultSceneからTitleSceneへシーンを切り替える
-                            SceneManager.LoadScene("titleScene", LoadSceneMode.Single);
+                            AudioSource.PlayClipAtPoint(click, new Vector3(0, 0, -5)); //効果音再生しつつ
+                            StartCoroutine(Resultbatton()); //シーン切り替えに関するコルーチン
                             break;
                         default:
                             break;
@@ -50,5 +52,16 @@ public class SceneMan : MonoBehaviour
                 }
             }
         }
+    }
+
+    //効果音がなってタイトルシーンに移行する
+    IEnumerator Resultbatton()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(1.0f); //0.25秒のディレイ。次の弾が生成されるまでの間隔をコントロールしてる
+            //ResultSceneからTitleSceneへシーンを切り替える
+            SceneManager.LoadScene("titleScene", LoadSceneMode.Single); 
+            }
     }
 }

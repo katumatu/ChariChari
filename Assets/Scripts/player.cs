@@ -13,6 +13,14 @@ public class player : MonoBehaviour
     public static int playerX = 0;
     public AudioClip jump; //効果音クリップ
 
+    public Sprite[] images;
+    public float switchInterval = 1.0f;  // 画像を切り替える間隔（秒）
+    public Vector2 imageSize = new Vector2(0.5f, 0.5f);  // 画像のサイズ
+
+    private SpriteRenderer spriteRenderer;
+    private int currentImageIndex = 0;
+    private float timer = 0f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +35,16 @@ public class player : MonoBehaviour
 
         isGrounded = true;
         AJ = 0;
+
+        spriteRenderer = GetComponent<SpriteRenderer>();
+
+        // 最初の画像を表示
+        if (images.Length > 0)
+        {
+            spriteRenderer.sprite = images[currentImageIndex];
+            // 画像のサイズを設定
+            spriteRenderer.transform.localScale = new Vector3(imageSize.x, imageSize.y, 1.0f);
+        }
     }
 
     // Update is called once per frame
@@ -49,7 +67,7 @@ public class player : MonoBehaviour
             else if (isGrounded == true)
             {
                 Jump();
-            }    
+            }
         }
 
         if (transform.position.y < -6.0f)
@@ -64,6 +82,25 @@ public class player : MonoBehaviour
         
         playerX = Mathf.FloorToInt(transform.position.x) +3;
         GameObject.Find("Score").GetComponent<scoreMan>().AddScore();
+
+        
+        // タイマーを更新
+        timer += Time.deltaTime;
+
+        // 指定された間隔ごとに画像を切り替え
+        if (timer >= switchInterval)
+        {
+            // 次の画像のインデックスを計算
+            currentImageIndex = (currentImageIndex + 1) % images.Length;
+
+            // 次の画像を表示
+            spriteRenderer.sprite = images[currentImageIndex];
+            // 画像のサイズを設定
+            spriteRenderer.transform.localScale = new Vector3(imageSize.x, imageSize.y, 1.0f);
+
+            // タイマーをリセット
+            timer = 0f;
+        }
     }
 
     void OnTriggerEnter2D(Collider2D coll)
@@ -80,9 +117,6 @@ public class player : MonoBehaviour
             isGrounded = true;
             AJ = 0;
         }
-        
-        //isGrounded = true;
-        //AJ = 0;
     }
 
     void OnCollisionExit2D(Collision2D collision)
@@ -117,7 +151,6 @@ public class player : MonoBehaviour
                 rb2d.velocity = new Vector2(rb2d.velocity.x, jumpForce);
                 isGrounded = false; // ジャンプ中は地面にいない状態にする
                 AudioSource.PlayClipAtPoint(jump, new Vector3(0, 0, -12)); //効果音再生しつつ
-                Destroy(jump, 3f);// 3秒後にSEを削除
                 //Debug.Log("通常ジャンプしたよ");
             }
         //}
@@ -135,7 +168,6 @@ public class player : MonoBehaviour
             rb2d.velocity = new Vector2(rb2d.velocity.x, jumpForce);
             AJ = 2;
             AudioSource.PlayClipAtPoint(jump, new Vector3(0, 0, -12)); //効果音再生しつつ
-            Destroy(jump, 3f);// 3秒後にSEを削除
             //Debug.Log("空ジャンしたよ");
         }
     }

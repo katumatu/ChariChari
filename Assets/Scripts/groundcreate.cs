@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class groundcreate : MonoBehaviour
+public class GroundCreate : MonoBehaviour
 {
 	//スクリプトに格納するもの
     public GameObject groundPrefab; //生成する隕石のプレハブ

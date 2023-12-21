@@ -11,6 +11,7 @@ public class player : MonoBehaviour
     private bool isGrounded;
     int AJ = 0;
     public static int playerX = 0;
+    public AudioClip jump; //効果音クリップ
 
     // Start is called before the first frame update
     void Start()
@@ -115,6 +116,8 @@ public class player : MonoBehaviour
             {
                 rb2d.velocity = new Vector2(rb2d.velocity.x, jumpForce);
                 isGrounded = false; // ジャンプ中は地面にいない状態にする
+                AudioSource.PlayClipAtPoint(jump, new Vector3(0, 0, -12)); //効果音再生しつつ
+                Destroy(jump, 3f);// 3秒後にSEを削除
                 //Debug.Log("通常ジャンプしたよ");
             }
         //}
@@ -131,6 +134,8 @@ public class player : MonoBehaviour
         {
             rb2d.velocity = new Vector2(rb2d.velocity.x, jumpForce);
             AJ = 2;
+            AudioSource.PlayClipAtPoint(jump, new Vector3(0, 0, -12)); //効果音再生しつつ
+            Destroy(jump, 3f);// 3秒後にSEを削除
             //Debug.Log("空ジャンしたよ");
         }
     }

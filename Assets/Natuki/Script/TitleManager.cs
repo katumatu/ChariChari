@@ -25,10 +25,16 @@ public class TitleManager : MonoBehaviour
 
     public SystemDataSet system; //実体宣言
 
+    //ゲームのイメージプレイヤーの作成
+    [SerializeField] Transform player;
+    Vector3 startPos;
+    Vector3 moveVec;
+
     // Start is called before the first frame update
     void Start()
     {
-
+        startPos = player.position; //最初の位置保存
+        Debug.Log($"startPos = {startPos}");
     }
 
     public void StartBUtton()
@@ -50,10 +56,27 @@ public class TitleManager : MonoBehaviour
         return color; //こちらに返す
     }
 
+
+    void ImageMove()
+    {
+
+        player.Translate(0.05f ,0,0);
+
+        if (player.position.x >= 8.10f)
+        {
+            player.position = startPos;
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
         system.startText.color = Text_Invicivil(system.startText.color); //返した値に代入し関数に渡す
+        
+    }
 
+    private void FixedUpdate()
+    {
+        ImageMove();
     }
 }

@@ -1119,9 +1119,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpForce: 18
-  jump: {fileID: 8300000, guid: a952fb48bf52dc2408fb1be0e32ff93b, type: 3}
+  jumpSE: {fileID: 8300000, guid: a952fb48bf52dc2408fb1be0e32ff93b, type: 3}
   images:
   - {fileID: 21300000, guid: 38f589059d7425f4d8931e342ca9854a, type: 3}
   - {fileID: 21300000, guid: 9e68b00b5ae7ff54bb4240d35546c48c, type: 3}
   switchInterval: 1
   imageSize: {x: 1, y: 1}
+  CoinSE: {fileID: 8300000, guid: d456359ffae9ffd4e986cca552d461f4, type: 3}

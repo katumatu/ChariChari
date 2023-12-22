@@ -15,7 +15,7 @@ public class player : MonoBehaviour
 
     public Sprite[] images;
     public float switchInterval = 1.0f;  // 画像を切り替える間隔（秒）
-    public Vector2 imageSize = new Vector2(0.5f, 0.5f);  // 画像のサイズ
+    public Vector2 imageSize = new Vector2(1.0f, 1.0f);  // 画像のサイズ
 
     private SpriteRenderer spriteRenderer;
     private int currentImageIndex = 0;
@@ -109,9 +109,12 @@ public class player : MonoBehaviour
         if (coll.gameObject.name == "Coin(Clone)")
         {
             //指定した位置でオーディオクリップを再生する。z座標の変更でボリュームを調節
-            AudioSource.PlayClipAtPoint(CoinSE, new Vector3(0, 0, -10));
+            AudioSource.PlayClipAtPoint(CoinSE, new Vector3(0, 0, -8));
             //衝突した相手のゲームオブジェクトを破棄する
             Destroy(coll.gameObject);
+            //CanvasオブジェクトのUIControllerコンポーネントを取得し、スコアを加算する
+            GameObject.Find("Score").GetComponent<scoreMan>().CoinScore();
+
         }
 
         if (coll.gameObject.name == "Ground(Clone)")
@@ -162,7 +165,7 @@ public class player : MonoBehaviour
             {
                 rb2d.velocity = new Vector2(rb2d.velocity.x, jumpForce);
                 isGrounded = false; // ジャンプ中は地面にいない状態にする
-                AudioSource.PlayClipAtPoint(jumpSE, new Vector3(0, 0, -12)); //効果音再生しつつ
+                AudioSource.PlayClipAtPoint(jumpSE, new Vector3(0, 0, -8)); //効果音再生しつつ
                 //Debug.Log("通常ジャンプしたよ");
             }
         //}
@@ -179,7 +182,7 @@ public class player : MonoBehaviour
         {
             rb2d.velocity = new Vector2(rb2d.velocity.x, jumpForce);
             AJ = 2;
-            AudioSource.PlayClipAtPoint(jumpSE, new Vector3(0, 0, -12)); //効果音再生しつつ
+            AudioSource.PlayClipAtPoint(jumpSE, new Vector3(0, 0, -8)); //効果音再生しつつ
             //Debug.Log("空ジャンしたよ");
         }
     }

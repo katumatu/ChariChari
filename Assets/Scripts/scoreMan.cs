@@ -65,4 +65,10 @@ public class scoreMan : MonoBehaviour
     {
         score = BaceScore + (player.playerX);
     }
+
+    public void CoinScore()
+    {
+        //スコアを10加算する
+        BaceScore += 10;
+    }
 }

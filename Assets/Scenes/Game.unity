@@ -395,7 +395,7 @@ GameObject:
   - component: {fileID: 482250174}
   - component: {fileID: 482250173}
   m_Layer: 0
-  m_Name: Square
+  m_Name: JumpSupporter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -409,7 +409,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 482250171}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0031, y: -1.2, z: 0}
+  m_LocalPosition: {x: 0, y: -1.2, z: 0}
   m_LocalScale: {x: 1.0187218, y: 0.3872, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

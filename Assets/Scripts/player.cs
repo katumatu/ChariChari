@@ -21,6 +21,7 @@ public class player : MonoBehaviour
     private int currentImageIndex = 0;
     private float timer = 0f;
     public AudioClip CoinSE; //効果音クリップ
+    int ColGlo = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -46,6 +47,8 @@ public class player : MonoBehaviour
             // 画像のサイズを設定
             spriteRenderer.transform.localScale = new Vector3(imageSize.x, imageSize.y, 1.0f);
         }
+
+        ColGlo = 0;
     }
 
     // Update is called once per frame
@@ -102,11 +105,25 @@ public class player : MonoBehaviour
             // タイマーをリセット
             timer = 0f;
         }
+
+        if(AJ >= 1)
+        {
+            if (rb2d.velocity.y > 0) // ジャンプ上昇中
+                transform.rotation = Quaternion.Euler(0, 0, 15);
+            else if (rb2d.velocity.y < 0) // ジャンプ下降中
+                transform.rotation = Quaternion.Euler(0, 0, -15);
+        }
+
+        if(AJ == 0 || rb2d.velocity.y == 0)
+        {
+            // 通常時は傾きを0度に保つ
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
     }
 
     void OnTriggerEnter2D(Collider2D coll)
     {
-        if (coll.gameObject.name == "Coin(Clone)")
+        if (coll.gameObject.name.Contains("Coin"))
         {
             //指定した位置でオーディオクリップを再生する。z座標の変更でボリュームを調節
             AudioSource.PlayClipAtPoint(CoinSE, new Vector3(0, 0, -8));
@@ -114,61 +131,51 @@ public class player : MonoBehaviour
             Destroy(coll.gameObject);
             //CanvasオブジェクトのUIControllerコンポーネントを取得し、スコアを加算する
             GameObject.Find("Score").GetComponent<scoreMan>().CoinScore();
-
         }
 
         if (coll.gameObject.name == "Ground(Clone)")
         {
-            if (rb2d.velocity.y > 0.0f && AJ >= 1)
+            // 接触相手の方向が上方向であれば何もしない
+            if (coll.transform.position.y < transform.position.y)
             {
-                isGrounded = false;
-                AJ = 2;
-            }
+                if (rb2d.velocity.y > 0.0f && AJ >= 1)
+                {
+                    isGrounded = false;
+                    AJ = 2;
+                }
 
-            // ジャンプ中にも接地している場合、ジャンプを許可する
-            else if (rb2d.velocity.y <= 0.0f )
-            {
-                isGrounded = true;
-                AJ = 0;
+                // ジャンプ中にも接地している場合、ジャンプを許可する
+                else if (rb2d.velocity.y <= 0.0f )
+                {                        isGrounded = true;
+                    AJ = 0;
+                }
+
+                ColGlo = 1;
             }
         }
     }
 
     void OnCollisionExit2D(Collision2D collision)
     {
-        isGrounded = false;
-        AJ = 1;
+        // 接触相手の方向が上方向であれば何もしない
+        if (ColGlo == 1)
+        {
+            isGrounded = false;
+            AJ = 1;
+            ColGlo = 0;
+        }
     }
 
     void Jump()
     {
-        
-        /*if (isGrounded == false)
+        if(AJ == 0)
         {
-            if(AJ == 1)
-            {
-                Debug.LogError("地面についてないよ");
-            }
-
-            if(AJ == 0)
-            {
-                rb2d.velocity = new Vector2(rb2d.velocity.x, jumpForce);
-                AJ = 1;
-                Debug.Log("空ジャンしたよ");
-            }
+            rb2d.velocity = new Vector2(rb2d.velocity.x, jumpForce);
+            isGrounded = false; // ジャンプ中は地面にいない状態にする
+            AudioSource.PlayClipAtPoint(jumpSE, new Vector3(0, 0, -5)); //効果音再生しつつ
+            AJ = 1;
+            //Debug.Log("通常ジャンプしたよ");
         }
-
-        // 地面に接触している場合にのみジャンプを許可
-        if (isGrounded == true)
-        {*/
-            if(AJ == 0)
-            {
-                rb2d.velocity = new Vector2(rb2d.velocity.x, jumpForce);
-                isGrounded = false; // ジャンプ中は地面にいない状態にする
-                AudioSource.PlayClipAtPoint(jumpSE, new Vector3(0, 0, -8)); //効果音再生しつつ
-                //Debug.Log("通常ジャンプしたよ");
-            }
-        //}
     }
 
     void AirJump()
@@ -182,7 +189,7 @@ public class player : MonoBehaviour
         {
             rb2d.velocity = new Vector2(rb2d.velocity.x, jumpForce);
             AJ = 2;
-            AudioSource.PlayClipAtPoint(jumpSE, new Vector3(0, 0, -8)); //効果音再生しつつ
+            AudioSource.PlayClipAtPoint(jumpSE, new Vector3(0, 0, -5)); //効果音再生しつつ
             //Debug.Log("空ジャンしたよ");
         }
     }

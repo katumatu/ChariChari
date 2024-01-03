@@ -17,7 +17,7 @@ public class camera : MonoBehaviour
     {
         // フレームレートを設定
         Application.targetFrameRate = targetFrameRate;
-    }
+    } 
 
     /*public int targetWidth = 2160; // 目標の幅
     public int targetHeight = 1080; // 目標の高さ
@@ -56,8 +56,8 @@ public class camera : MonoBehaviour
                 //現在読み込まれているシーンを再度読み込む
                 switch (SceneManager.GetActiveScene().name)
                 {
-                    case "Title":
-                        SceneManager.LoadScene("Title", LoadSceneMode.Single);
+                    case "titleScene":
+                        SceneManager.LoadScene("titleScene", LoadSceneMode.Single);
                         break;
                     case "Game":
                         SceneManager.LoadScene("Game", LoadSceneMode.Single);
@@ -78,7 +78,7 @@ public class camera : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.T))
             {
                 Time.timeScale = 1;//読み込みの時間が正常値に戻り
-                SceneManager.LoadScene("Title", LoadSceneMode.Single);//タイトルシーン単体を読み込む
+                SceneManager.LoadScene("titleScene", LoadSceneMode.Single);//タイトルシーン単体を読み込む
             }
         }
 
@@ -93,11 +93,11 @@ public class camera : MonoBehaviour
         {
             idleTime += Time.deltaTime;
 
-            //アイドル時間が閾値を超えた場合、TitleSceneに戻る
+            //アイドル時間が閾値を超えた場合、titleSceneSceneに戻る
             if (idleTime >= idleThreshold)
             {
-                if(SceneManager.GetActiveScene().name != "Title"){
-                    SceneManager.LoadScene("Title");
+                if(SceneManager.GetActiveScene().name != "titleScene"){
+                    SceneManager.LoadScene("titleScene");
                 }
             }
         }
@@ -108,11 +108,18 @@ public class camera : MonoBehaviour
             Application.Quit();
         }
 
-        if (targetPlayer.position.y > 0)
+        switch (SceneManager.GetActiveScene().name)
         {
-            if(targetPlayer.position.y < 4)
-            // プレイヤーの位置にカメラを追従させる（Y軸のみ）
-            transform.position = new Vector3(transform.position.x, targetPlayer.position.y, transform.position.z);
+            case "Game":
+                if (targetPlayer.position.y > 0)
+                {
+                    if(targetPlayer.position.y < 4)
+                    // プレイヤーの位置にカメラを追従させる（Y軸のみ）
+                    transform.position = new Vector3(transform.position.x, targetPlayer.position.y, transform.position.z);
+                }
+                break;
+            default:
+                break;
         }
     }
 }

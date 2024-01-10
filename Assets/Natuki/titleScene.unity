@@ -362,7 +362,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioData:
     audio: {fileID: 999507184}
-    audioClips: []
+    audioClips:
+    - {fileID: 8300000, guid: 8dcd6acbbec21b846af72ed23a70a70b, type: 3}
 --- !u!4 &999507186
 Transform:
   m_ObjectHideFlags: 0

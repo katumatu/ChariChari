@@ -153,6 +153,27 @@ public class player : MonoBehaviour
                 ColGlo = 1;
             }
         }
+
+        if (coll.gameObject.name == "Ground_V")
+        {
+            // 接触相手の方向が上方向であれば何もしない
+            if (coll.transform.position.y < transform.position.y)
+            {
+                if (rb2d.velocity.y > 0.0f && AJ >= 1)
+                {
+                    isGrounded = false;
+                    AJ = 2;
+                }
+
+                // ジャンプ中にも接地している場合、ジャンプを許可する
+                else if (rb2d.velocity.y <= 0.0f )
+                {                        isGrounded = true;
+                    AJ = 0;
+                }
+
+                ColGlo = 1;
+            }
+        }
     }
 
     void OnCollisionExit2D(Collision2D collision)

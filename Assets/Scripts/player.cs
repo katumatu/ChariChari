@@ -24,6 +24,8 @@ public class player : MonoBehaviour
     int ColGlo = 0;
 
     public GameObject TraPrefab; //軌跡のプレハブ
+    public static bool quickflg = false;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -53,6 +55,7 @@ public class player : MonoBehaviour
         ColGlo = 0;
 
         StartCoroutine(TraCre()); //軌跡生成に関するコルーチン、トラクリを実行
+        quickflg = false;
     }
 
     // Update is called once per frame
@@ -171,13 +174,20 @@ public class player : MonoBehaviour
 
                 // ジャンプ中にも接地している場合、ジャンプを許可する
                 else if (rb2d.velocity.y <= 0.0f )
-                {                        
+                {
                     isGrounded = true;
                     AJ = 0;
                 }
 
                 ColGlo = 1;
             }
+        }
+
+        if (coll.gameObject.name == "Timer")
+        {
+            Time.timeScale = 2;
+            quickflg = true;
+            Invoke("SlowMethod", 5.0f); //秒後にディレイメソッドを実行
         }
     }
 
@@ -230,5 +240,11 @@ public class player : MonoBehaviour
             newPosition.x -= 0.3f; //自機の少し前に生成位置を調節して、
             GameObject Trajectory = Instantiate(TraPrefab, newPosition, Quaternion.Euler(0f, 0f, 0f + 45f * Random.value)); //弾を生成する
         }
+    }
+
+    void SlowMethod()
+    {
+        Time.timeScale = 1;
+        quickflg = false;
     }
 }

@@ -38,12 +38,12 @@ public class CoinMove : MonoBehaviour
 
         if (isGrounded == false)
         {
-        // 上下にふわふわ浮かせる
-        newY = startPos.y + Mathf.Sin(Time.time * floatSpeed) * floatHeight;
+            // 上下にふわふわ浮かせる
+            newY = startPos.y + Mathf.Sin(Time.time * floatSpeed) * floatHeight;
 
-        // Y軸方向のみを変更するため、第一引数には Vector3.up を指定します。
-        Vector3 newPosition = new Vector3(transform.position.x - 0.1f, newY, transform.position.z);
-        transform.Translate(newPosition - transform.position, Space.World);
+            // Y軸方向のみを変更するため、第一引数には Vector3.up を指定します。
+            Vector3 newPosition = new Vector3(transform.position.x - 0.1f, newY, transform.position.z);
+            transform.Translate(newPosition - transform.position, Space.World);
         }
     }
 
@@ -54,7 +54,7 @@ public class CoinMove : MonoBehaviour
             isGrounded = true;
             transform.position = new Vector3(transform.position.x, transform.position.y + 1, transform.position.z);
             startPos = transform.position; // 初期位置を保存
-            Debug.Log("CoinsMove");
+            //Debug.Log("CoinsMove");
         }
 
         //他のコインと重なって生成されるのを防ぐ
@@ -67,6 +67,6 @@ public class CoinMove : MonoBehaviour
     void OnTriggerExit2D(Collider2D other)
     {
         isGrounded = false;
-        Debug.Log("トラ瞬間移動");
+        //Debug.Log("トラ瞬間移動");
     }
 }

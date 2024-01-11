@@ -7,11 +7,12 @@ public class CoinMove : MonoBehaviour
 {
 
     public float floatSpeed = 2.0f; // 浮遊の速さ
-    public float floatHeight = 0.3f; // 浮遊の高さ
+    public float floatHeight = 0.5f; // 浮遊の高さ
     private Vector3 startPos; // 初期位置
     public GameObject coin; //生成するcoinのプレハブ
     int increase = 0;
     private bool isGrounded;
+    float newY = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -28,9 +29,8 @@ public class CoinMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(-0.1f, 0, 0);
-        //弾の位置が-5よりも左に移動していた場合、
-        if (transform.position.x < -14.0f)
+        //コインの位置が-15よりも左に移動していた場合、
+        if (transform.position.x < -15.0f)
         {
             //弾を破棄する
             Destroy(gameObject);
@@ -38,9 +38,12 @@ public class CoinMove : MonoBehaviour
 
         if (isGrounded == false)
         {
-            // 上下にふわふわ浮かせる
-            float newY = startPos.y + Mathf.Sin(Time.time * floatSpeed) * floatHeight;
-            transform.position = new Vector3(transform.position.x, newY, transform.position.z);
+        // 上下にふわふわ浮かせる
+        newY = startPos.y + Mathf.Sin(Time.time * floatSpeed) * floatHeight;
+
+        // Y軸方向のみを変更するため、第一引数には Vector3.up を指定します。
+        Vector3 newPosition = new Vector3(transform.position.x - 0.1f, newY, transform.position.z);
+        transform.Translate(newPosition - transform.position, Space.World);
         }
     }
 
@@ -49,9 +52,9 @@ public class CoinMove : MonoBehaviour
         if (coll.gameObject.name == "Ground(Clone)")
         {
             isGrounded = true;
-
             transform.position = new Vector3(transform.position.x, transform.position.y + 1, transform.position.z);
-            //Debug.Log("CoinsMove");
+            startPos = transform.position; // 初期位置を保存
+            Debug.Log("CoinsMove");
         }
 
         //他のコインと重なって生成されるのを防ぐ
@@ -61,8 +64,9 @@ public class CoinMove : MonoBehaviour
         }
     }
 
-    void OnCollisionExit2D(Collision2D collision)
+    void OnTriggerExit2D(Collider2D other)
     {
         isGrounded = false;
+        Debug.Log("トラ瞬間移動");
     }
 }

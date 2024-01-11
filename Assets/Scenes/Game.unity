@@ -1126,3 +1126,4 @@ MonoBehaviour:
   switchInterval: 0.1
   imageSize: {x: 0.7, y: 0.7}
   CoinSE: {fileID: 8300000, guid: d456359ffae9ffd4e986cca552d461f4, type: 3}
+  TraPrefab: {fileID: 1741229043178179619, guid: f5ec92699409efa44833a6473d817744, type: 3}

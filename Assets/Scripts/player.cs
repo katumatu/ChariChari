@@ -23,6 +23,8 @@ public class player : MonoBehaviour
     public AudioClip CoinSE; //効果音クリップ
     int ColGlo = 0;
 
+    public GameObject TraPrefab; //軌跡のプレハブ
+
     // Start is called before the first frame update
     void Start()
     {
@@ -49,6 +51,8 @@ public class player : MonoBehaviour
         }
 
         ColGlo = 0;
+
+        StartCoroutine(TraCre()); //軌跡生成に関するコルーチン、トラクリを実行
     }
 
     // Update is called once per frame
@@ -167,7 +171,8 @@ public class player : MonoBehaviour
 
                 // ジャンプ中にも接地している場合、ジャンプを許可する
                 else if (rb2d.velocity.y <= 0.0f )
-                {                        isGrounded = true;
+                {                        
+                    isGrounded = true;
                     AJ = 0;
                 }
 
@@ -212,6 +217,18 @@ public class player : MonoBehaviour
             AJ = 2;
             AudioSource.PlayClipAtPoint(jumpSE, new Vector3(0, 0, -5)); //効果音再生しつつ
             //Debug.Log("空ジャンしたよ");
+        }
+    }
+
+    //トラクリ。弾生成に関する処理
+    IEnumerator TraCre()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(0.01f); //0.25秒のディレイ。次の弾が生成されるまでの間隔をコントロールしてる
+            Vector3 newPosition = transform.position; //自機の座標を読み取って、
+            newPosition.x -= 0.3f; //自機の少し前に生成位置を調節して、
+            GameObject Trajectory = Instantiate(TraPrefab, newPosition, Quaternion.Euler(0f, 0f, 0f + 45f * Random.value)); //弾を生成する
         }
     }
 }

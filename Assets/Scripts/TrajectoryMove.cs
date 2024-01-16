@@ -44,7 +44,7 @@ public class TrajectoryMove : MonoBehaviour
         spriteRenderer.color = currentColor;
 
         //透明度が0になったら
-        if (newAlpha <= 0f)
+        if(newAlpha <= 0f)
         {
             //オブジェクトを非表示にする
             //gameObject.SetActive(false);
@@ -57,7 +57,7 @@ public class TrajectoryMove : MonoBehaviour
         //transform.rotation = Quaternion.Euler(0, 0, 15);
         transform.Translate(-0.1f, 0, 0, Space.World);
         //軌跡の位置が-14よりも左に移動していた場合、
-        if (transform.position.x < -14.0f)
+        if(transform.position.x < -14.0f)
         {
             //弾を破棄する
             Destroy(gameObject);

@@ -33,7 +33,7 @@ public class player : MonoBehaviour
         // Rigidbody2Dコンポーネントを取得する
         rb2d = GetComponent<Rigidbody2D>();
 
-        if (rb2d != null)
+        if(rb2d != null)
         {
             // 回転を制限する
             rb2d.freezeRotation = true;
@@ -45,7 +45,7 @@ public class player : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
 
         // 最初の画像を表示
-        if (images.Length > 0)
+        if(images.Length > 0)
         {
             spriteRenderer.sprite = images[currentImageIndex];
             // 画像のサイズを設定
@@ -61,32 +61,32 @@ public class player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*if (rb2d.velocity.y < 0.0f)
+        /*if(rb2d.velocity.y < 0.0f)
         {
             isGrounded = false;
         }*/
         
         // 画面がタッチされたかどうかの判定
-        if (Input.GetMouseButtonDown(0))
+        if(Input.GetMouseButtonDown(0))
         {
-            if (isGrounded == false)
+            if(isGrounded == false)
             {
                 AirJump();
                 //Debug.LogError("地面についてないよ");
             }
 
-            else if (isGrounded == true)
+            else if(isGrounded == true)
             {
                 Jump();
             }
         }
 
-        if (transform.position.y < -6.0f)
+        if(transform.position.y < -6.0f)
         {
             SceneManager.LoadScene("Result", LoadSceneMode.Single);
         }
 
-        if (transform.position.x < -10.0f)
+        if(transform.position.x < -10.0f)
         {
             SceneManager.LoadScene("Result", LoadSceneMode.Single);
         }
@@ -99,7 +99,7 @@ public class player : MonoBehaviour
         timer += Time.deltaTime;
 
         // 指定された間隔ごとに画像を切り替え
-        if (timer >= switchInterval)
+        if(timer >= switchInterval)
         {
             // 次の画像のインデックスを計算
             currentImageIndex = (currentImageIndex + 1) % images.Length;
@@ -115,9 +115,9 @@ public class player : MonoBehaviour
 
         if(AJ >= 1)
         {
-            if (rb2d.velocity.y > 0) // ジャンプ上昇中
+            if(rb2d.velocity.y > 0) // ジャンプ上昇中
                 transform.rotation = Quaternion.Euler(0, 0, 15);
-            else if (rb2d.velocity.y < 0) // ジャンプ下降中
+            else if(rb2d.velocity.y < 0) // ジャンプ下降中
                 transform.rotation = Quaternion.Euler(0, 0, -15);
         }
 
@@ -130,7 +130,7 @@ public class player : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D coll)
     {
-        if (coll.gameObject.name.Contains("Coin"))
+        if(coll.gameObject.name.Contains("Coin"))
         {
             //指定した位置でオーディオクリップを再生する。z座標の変更でボリュームを調節
             AudioSource.PlayClipAtPoint(CoinSE, new Vector3(0, 0, -8));
@@ -140,19 +140,19 @@ public class player : MonoBehaviour
             GameObject.Find("Score").GetComponent<scoreMan>().CoinScore();
         }
 
-        if (coll.gameObject.name == "Ground(Clone)")
+        if(coll.gameObject.name == "Ground(Clone)")
         {
             // 接触相手の方向が上方向であれば何もしない
-            if (coll.transform.position.y < transform.position.y)
+            if(coll.transform.position.y < transform.position.y)
             {
-                if (rb2d.velocity.y > 0.0f && AJ >= 1)
+                if(rb2d.velocity.y > 0.0f && AJ >= 1)
                 {
                     isGrounded = false;
                     AJ = 2;
                 }
 
                 // ジャンプ中にも接地している場合、ジャンプを許可する
-                else if (rb2d.velocity.y <= 0.0f )
+                else if(rb2d.velocity.y <= 0.0f )
                 {                        isGrounded = true;
                     AJ = 0;
                 }
@@ -161,19 +161,19 @@ public class player : MonoBehaviour
             }
         }
 
-        if (coll.gameObject.name == "Ground_V")
+        if(coll.gameObject.name == "Ground_V(Clone)")
         {
             // 接触相手の方向が上方向であれば何もしない
-            if (coll.transform.position.y < transform.position.y)
+            if(coll.transform.position.y < transform.position.y)
             {
-                if (rb2d.velocity.y > 0.0f && AJ >= 1)
+                if(rb2d.velocity.y > 0.0f && AJ >= 1)
                 {
                     isGrounded = false;
                     AJ = 2;
                 }
 
                 // ジャンプ中にも接地している場合、ジャンプを許可する
-                else if (rb2d.velocity.y <= 0.0f )
+                else if(rb2d.velocity.y <= 0.0f )
                 {
                     isGrounded = true;
                     AJ = 0;
@@ -183,18 +183,20 @@ public class player : MonoBehaviour
             }
         }
 
-        if (coll.gameObject.name == "Timer")
+        if(coll.gameObject.name == "Timer(Clone)")
         {
-            Time.timeScale = 2;
+            //Time.timeScale = 2;
             quickflg = true;
             Invoke("SlowMethod", 5.0f); //秒後にディレイメソッドを実行
+            //衝突した相手のゲームオブジェクトを破棄する
+            Destroy(coll.gameObject);
         }
     }
 
     void OnCollisionExit2D(Collision2D collision)
     {
         // 接触相手の方向が上方向であれば何もしない
-        if (ColGlo == 1)
+        if(ColGlo == 1)
         {
             isGrounded = false;
             AJ = 1;

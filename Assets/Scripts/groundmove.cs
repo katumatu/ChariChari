@@ -13,10 +13,19 @@ public class GroundMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //transform.rotation = Quaternion.Euler(0, 0, 15);
-        transform.Translate(-0.1f, 0, 0);
+        if(player.quickflg == true)
+        {
+            transform.Translate(-0.2f, 0, 0);
+        }
+
+        if(player.quickflg == false)
+        {
+            //transform.rotation = Quaternion.Euler(0, 0, 15);
+            transform.Translate(-0.1f, 0, 0);
+        }
+
         //弾の位置が-5よりも左に移動していた場合、
-        if (transform.position.x < -15.0f)
+        if(transform.position.x < -15.0f)
         {
             //弾を破棄する
             Destroy(gameObject);

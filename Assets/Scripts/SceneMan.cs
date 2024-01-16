@@ -22,7 +22,7 @@ public class SceneMan : MonoBehaviour
     void Update()
     {
         //マウスの左クリックが押された時、
-        if (Input.GetMouseButtonDown(0))
+        if(Input.GetMouseButtonDown(0))
         {
             List<RaycastResult> results = new List<RaycastResult>();
             //ポインターデータにマウス座標を設定
@@ -34,7 +34,7 @@ public class SceneMan : MonoBehaviour
             {
                 Debug.Log(target.gameObject.name);
                 //StartButtonという名前のオブジェクトがクリックされた場合の処理
-                if (target.gameObject.name == "Button")
+                if(target.gameObject.name == "Button")
                 {
                     switch (SceneManager.GetActiveScene().name)
                     {

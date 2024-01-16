@@ -44,8 +44,17 @@ public class scoreMan : MonoBehaviour
                     case "Game":
                         // フレーム数をカウント
                         framesPassed++;
+                        if(player.quickflg == true)
+                        {
+                            framesPerIncrement = 5;
+                        }
+
+                        if(player.quickflg == false)
+                        {
+                            framesPerIncrement = 10;
+                        }
                         // 10フレームごとにスコアを増やす
-                        if (framesPassed >= framesPerIncrement)
+                        if(framesPassed >= framesPerIncrement)
                         {
                             BaceScore++;
                             framesPassed = 0; // フレーム数をリセット

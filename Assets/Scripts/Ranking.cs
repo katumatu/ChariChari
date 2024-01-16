@@ -20,25 +20,25 @@ public class Ranking : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (score01 >= scoreMan.score)
+        if(score01 >= scoreMan.score)
         {
-            if (score02 >= scoreMan.score)
+            if(score02 >= scoreMan.score)
             {
-                if (score03 >= scoreMan.score)
+                if(score03 >= scoreMan.score)
                 {
-                    if (score04 >= scoreMan.score && score05 < scoreMan.score)
+                    if(score04 >= scoreMan.score && score05 < scoreMan.score)
                     {
                         score05 = scoreMan.score;
                     }
 
-                    if (score04 < scoreMan.score)
+                    if(score04 < scoreMan.score)
                     {
                         score05 = score04;
                         score04 = scoreMan.score;
                     }
                 }
 
-                if (score03 < scoreMan.score)
+                if(score03 < scoreMan.score)
                 {
                     score05 = score04;
                     score04 = score03;
@@ -46,7 +46,7 @@ public class Ranking : MonoBehaviour
                 }
             }
 
-            if (score02 < scoreMan.score)
+            if(score02 < scoreMan.score)
             {
                 score05 = score04;
                 score04 = score03;
@@ -55,7 +55,7 @@ public class Ranking : MonoBehaviour
             }
         }
         
-        if (score01 < scoreMan.score)
+        if(score01 < scoreMan.score)
         {
             score05 = score04;
             score04 = score03;

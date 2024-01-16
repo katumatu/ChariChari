@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+
 public class camera : MonoBehaviour
 {
     // 目標のフレームレート
@@ -25,7 +26,7 @@ public class camera : MonoBehaviour
 
     void Start()
     {
-        /*if (fullscreen)
+        /*if(fullscreen)
         {
             Screen.SetResolution(targetWidth, targetHeight, true);
         }
@@ -48,10 +49,10 @@ public class camera : MonoBehaviour
         Debug.Log("Current Frame Rate: " + currentFrameRate.ToString("F2"));*/
 
         //左CTRLキーが押されている時、
-        if (Input.GetKey(KeyCode.LeftControl))
+        if(Input.GetKey(KeyCode.LeftControl))
         {
             //Rキーも押された場合、
-            if (Input.GetKeyDown(KeyCode.R))
+            if(Input.GetKeyDown(KeyCode.R))
             {
                 //現在読み込まれているシーンを再度読み込む
                 switch (SceneManager.GetActiveScene().name)
@@ -72,10 +73,10 @@ public class camera : MonoBehaviour
         }
 
         //左CTRLを押しているとき、
-        if (Input.GetKey(KeyCode.LeftControl))
+        if(Input.GetKey(KeyCode.LeftControl))
         {
             //Tキーも押すと、
-            if (Input.GetKeyDown(KeyCode.T))
+            if(Input.GetKeyDown(KeyCode.T))
             {
                 Time.timeScale = 1;//読み込みの時間が正常値に戻り
                 SceneManager.LoadScene("titleScene", LoadSceneMode.Single);//タイトルシーン単体を読み込む
@@ -83,18 +84,18 @@ public class camera : MonoBehaviour
         }
 
         //入力があった場合はタイマーをリセット
-        if (Input.anyKey)
+        if(Input.anyKey)
         {
             idleTime = 0f;
         }
 
         //タイマーが動作中であればアイドル時間をカウント
-        if (isTimerRunning)
+        if(isTimerRunning)
         {
             idleTime += Time.deltaTime;
 
             //アイドル時間が閾値を超えた場合、titleSceneSceneに戻る
-            if (idleTime >= idleThreshold)
+            if(idleTime >= idleThreshold)
             {
                 if(SceneManager.GetActiveScene().name != "titleScene"){
                     SceneManager.LoadScene("titleScene");
@@ -103,7 +104,7 @@ public class camera : MonoBehaviour
         }
 
         //ESCキーでゲームを終わる
-        if (Input.GetKey(KeyCode.Escape))
+        if(Input.GetKey(KeyCode.Escape))
         {
             Application.Quit();
         }
@@ -111,7 +112,7 @@ public class camera : MonoBehaviour
         switch (SceneManager.GetActiveScene().name)
         {
             case "Game":
-                if (targetPlayer.position.y > 0)
+                if(targetPlayer.position.y > 0)
                 {
                     if(targetPlayer.position.y < 4)
                     // プレイヤーの位置にカメラを追従させる（Y軸のみ）

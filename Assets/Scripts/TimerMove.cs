@@ -21,13 +21,13 @@ public class TimerMove : MonoBehaviour
     void Update()
     {
         //タイマーの位置が-15よりも左に移動していた場合、
-        if (transform.position.x < -15.0f)
+        if(transform.position.x < -15.0f)
         {
             //タイマーを破棄する
             Destroy(gameObject);
         }
 
-        if (isGrounded == false)
+        if(isGrounded == false)
         {
             // 上下にふわふわ浮かせる
             newY = startPos.y + Mathf.Sin(Time.time * floatSpeed) * floatHeight;
@@ -40,18 +40,12 @@ public class TimerMove : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D coll)
     {
-        if (coll.gameObject.name == "Ground(Clone)")
+        if(coll.gameObject.name == "Ground(Clone)")
         {
             isGrounded = true;
             transform.position = new Vector3(transform.position.x, transform.position.y + 1, transform.position.z);
             startPos = transform.position; // 初期位置を保存
             //Debug.Log("CoinsMove");
-        }
-
-        //他のコインと重なって生成されるのを防ぐ
-        if (coll.gameObject.name.Contains("Coin"))
-        {
-            Destroy(gameObject);
         }
     }
 

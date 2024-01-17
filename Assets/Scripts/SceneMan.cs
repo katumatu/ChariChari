@@ -11,17 +11,31 @@ public class SceneMan : MonoBehaviour
     public AudioClip click; //効果音クリップ
     private float delayTimer; // ディレイの経過時間
 
+    [SerializeField]
+    GameObject TabletTouch;
+
+    private bool isExplan = false;
+
     //Start is called before the first frame update
     void Start()
     {
+        if (SceneManager.GetActiveScene().name == "Explan")
+        {
+            TabletTouch.SetActive(false);
+        }
+        
+        isExplan = false;
         //ポインターデータの初期化
         pointer = new PointerEventData(EventSystem.current);
+
+        // 一秒後に操作を受け付けるためにInvokeを使用
+        Invoke("EnableInput", 2.0f);
     }
 
     // Update is called once per frame
     void Update()
     {
-        //マウスの左クリックが押された時、
+        //マウスクリックされた時、
         if(Input.GetMouseButtonDown(0))
         {
             List<RaycastResult> results = new List<RaycastResult>();
@@ -36,19 +50,20 @@ public class SceneMan : MonoBehaviour
                 //StartButtonという名前のオブジェクトがクリックされた場合の処理
                 if(target.gameObject.name == "Button")
                 {
-                    switch (SceneManager.GetActiveScene().name)
+                    if (SceneManager.GetActiveScene().name == "Result")
                     {
-                        /*case "TitleScene":
-                            //TitleSceneからGameSceneへシーンを切り替える
-                            SceneManager.LoadScene("GameScene", LoadSceneMode.Single);
-                            break;*/
-                        case "Result":
-                            AudioSource.PlayClipAtPoint(click, new Vector3(0, 0, -5)); //効果音再生しつつ
-                            StartCoroutine(Resultbatton()); //シーン切り替えに関するコルーチン
-                            break;
-                        default:
-                            break;
+                        AudioSource.PlayClipAtPoint(click, new Vector3(0, 0, -5)); //効果音再生しつつ
+                        StartCoroutine(Resultbatton()); //シーン切り替えに関するコルーチン
                     }
+                }
+            }
+
+            if (SceneManager.GetActiveScene().name == "Explan")
+            {
+                if (isExplan == true)
+                {
+                    // シーンの切り替え
+                    SceneManager.LoadScene("Game", LoadSceneMode.Single);
                 }
             }
         }
@@ -59,9 +74,19 @@ public class SceneMan : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(1.0f); //0.25秒のディレイ。次の弾が生成されるまでの間隔をコントロールしてる
+            yield return new WaitForSeconds(1.0f);
             //ResultSceneからTitleSceneへシーンを切り替える
             SceneManager.LoadScene("titleScene", LoadSceneMode.Single); 
-            }
+        }
+    }
+
+    void EnableInput()
+    {
+        if (SceneManager.GetActiveScene().name == "Explan")
+        {
+            TabletTouch.SetActive(true);
+            isExplan = true;
+            Debug.Log("Explanだよ");
+        } 
     }
 }

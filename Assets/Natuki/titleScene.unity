@@ -228,7 +228,7 @@ Transform:
   m_GameObject: {fileID: 244435205}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.0873, y: -4.49, z: 0}
-  m_LocalScale: {x: 18.033665, y: 1, z: 1}
+  m_LocalScale: {x: 21, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -508,7 +508,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1234165942}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1279862759}
+        m_TargetAssemblyTypeName: TitleManager, Assembly-CSharp
+        m_MethodName: ExitButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1234165942
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -601,7 +613,7 @@ MonoBehaviour:
     startButton: {fileID: 1807419705}
     exitButton: {fileID: 1234165940}
     startText: {fileID: 1814774322}
-    LodedName: Game
+    LodedName: Explan
   player: {fileID: 2137911757}
 --- !u!4 &1279862760
 Transform:
@@ -944,7 +956,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1279862759}
         m_TargetAssemblyTypeName: TitleManager, Assembly-CSharp
-        m_MethodName: StartBUtton
+        m_MethodName: StartButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -15,7 +15,7 @@ C:/Users/katsu/OneDrive/ドキュメント/GitHub/ChariChari
 -logFile
 Logs/AssetImportWorker2.log
 -srvPort
-62018
+64138
 Successfully changed project path to: C:/Users/katsu/OneDrive/ドキュメント/GitHub/ChariChari
 C:/Users/katsu/OneDrive/ドキュメント/GitHub/ChariChari
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -47,7 +47,7 @@ C:/Users/katsu/OneDrive/ドキュメント/GitHub/ChariChari
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Refreshing native plugins compatible for Editor in 90.57 ms, found 4 plugins.
+Refreshing native plugins compatible for Editor in 175.18 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2021.3.1f1 (3b70a0754835)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2021.3.1f1/Editor/Data/Resources/UnitySubsystems
@@ -63,93 +63,93 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2021.3.1f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2021.3.1f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2021.3.1f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56328
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56876
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.1f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.1f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.013468 seconds.
+Registered in 0.020199 seconds.
 Native extension for WindowsStandalone target not found
 Native extension for Android target not found
-Refreshing native plugins compatible for Editor in 84.00 ms, found 4 plugins.
+Refreshing native plugins compatible for Editor in 118.66 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.692 seconds
+- Completed reload, in  1.100 seconds
 Domain Reload Profiling:
-	ReloadAssembly (693ms)
-		BeginReloadAssembly (80ms)
+	ReloadAssembly (1101ms)
+		BeginReloadAssembly (130ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (1ms)
-		EndReloadAssembly (487ms)
-			LoadAssemblies (76ms)
+		EndReloadAssembly (785ms)
+			LoadAssemblies (126ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (110ms)
+			SetupTypeCache (193ms)
 			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (27ms)
-			SetupLoadedEditorAssemblies (294ms)
+			RebuildScriptCaches (53ms)
+			SetupLoadedEditorAssemblies (458ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (57ms)
-				SetLoadedEditorAssemblies (1ms)
-				RefreshPlugins (84ms)
-				BeforeProcessingInitializeOnLoad (1ms)
-				ProcessInitializeOnLoadAttributes (104ms)
-				ProcessInitializeOnLoadMethodAttributes (46ms)
+				InitializePlatformSupportModulesInManaged (133ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (119ms)
+				BeforeProcessingInitializeOnLoad (2ms)
+				ProcessInitializeOnLoadAttributes (143ms)
+				ProcessInitializeOnLoadMethodAttributes (60ms)
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.008532 seconds.
+Registered in 0.018016 seconds.
 Begin MonoManager ReloadAssembly
 Symbol file LoadedFromMemory doesn't match image C:\Users\katsu\OneDrive\ドキュメント\GitHub\ChariChari\Library\PackageCache\com.unity.visualscripting@1.7.6\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
 Symbol file LoadedFromMemory is not a mono symbol file
 Symbol file LoadedFromMemory doesn't match image C:\Users\katsu\OneDrive\ドキュメント\GitHub\ChariChari\Library\PackageCache\com.unity.visualscripting@1.7.6\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
 Native extension for WindowsStandalone target not found
 Native extension for Android target not found
-Refreshing native plugins compatible for Editor in 81.30 ms, found 4 plugins.
+Refreshing native plugins compatible for Editor in 117.38 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.315 seconds
+- Completed reload, in  2.001 seconds
 Domain Reload Profiling:
-	ReloadAssembly (1316ms)
-		BeginReloadAssembly (235ms)
+	ReloadAssembly (2004ms)
+		BeginReloadAssembly (373ms)
 			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (6ms)
+			DisableScriptedObjects (10ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (129ms)
-		EndReloadAssembly (955ms)
-			LoadAssemblies (119ms)
+			CreateAndSetChildDomain (141ms)
+		EndReloadAssembly (1398ms)
+			LoadAssemblies (243ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (301ms)
+			SetupTypeCache (379ms)
 			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (55ms)
-			SetupLoadedEditorAssemblies (438ms)
+			RebuildScriptCaches (81ms)
+			SetupLoadedEditorAssemblies (696ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (15ms)
+				InitializePlatformSupportModulesInManaged (26ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (81ms)
-				BeforeProcessingInitializeOnLoad (99ms)
-				ProcessInitializeOnLoadAttributes (196ms)
-				ProcessInitializeOnLoadMethodAttributes (34ms)
-				AfterProcessingInitializeOnLoad (12ms)
+				RefreshPlugins (117ms)
+				BeforeProcessingInitializeOnLoad (157ms)
+				ProcessInitializeOnLoadAttributes (327ms)
+				ProcessInitializeOnLoadMethodAttributes (51ms)
+				AfterProcessingInitializeOnLoad (17ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (5ms)
+			AwakeInstancesAfterBackupRestoration (7ms)
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
-Refreshing native plugins compatible for Editor in 1.31 ms, found 4 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.10 seconds
+Refreshing native plugins compatible for Editor in 1.48 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3928 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 34 unused Assets / (55.6 KB). Loaded Objects now: 4390.
-Memory consumption went from 151.9 MB to 151.9 MB.
-Total: 4.378600 ms (FindLiveObjects: 0.351900 ms CreateObjectMapping: 0.518300 ms MarkObjects: 3.430900 ms  DeleteObjects: 0.076700 ms)
+Unloading 3942 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 34 unused Assets / (55.7 KB). Loaded Objects now: 4405.
+Memory consumption went from 155.0 MB to 154.9 MB.
+Total: 5.786300 ms (FindLiveObjects: 0.462500 ms CreateObjectMapping: 0.430400 ms MarkObjects: 4.777700 ms  DeleteObjects: 0.113900 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
@@ -163,28 +163,16 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 140361.597721 seconds.
-  path: Assets/Natuki/TestScene.unity
-  artifactKey: Guid(faea147ec79b07849a1fca9b67fc0195) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Natuki/TestScene.unity using Guid(faea147ec79b07849a1fca9b67fc0195) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e07ee480e1d5309c22212e9ca30397df') in 0.011686 seconds 
+  Time since last request: 167271.046440 seconds.
+  path: Assets/Audio/BGM/スコア表示BGM.mp3
+  artifactKey: Guid(f14b4fe6442c13f4bb7662882a626106) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Audio/BGM/スコア表示BGM.mp3 using Guid(f14b4fe6442c13f4bb7662882a626106) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9420abc8ced141fff73d70cb8419e6a1') in 0.303576 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 19.250447 seconds.
-  path: Assets/Images/57_20231130132102.png
-  artifactKey: Guid(b04c84e405240d042a480270e81d764d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Images/57_20231130132102.png using Guid(b04c84e405240d042a480270e81d764d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5c4cc60ea91e46c9d10a7bad8e71976a') in 0.194501 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000030 seconds.
-  path: Assets/Images/timer.png
-  artifactKey: Guid(b58fd05f0778fff42b6756cce931f8cb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Images/timer.png using Guid(b58fd05f0778fff42b6756cce931f8cb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6f346ff286a014e7350dee4c7f385d86') in 0.195446 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000048 seconds.
-  path: Assets/Images/ground_V.png
-  artifactKey: Guid(4c280a70b4dceb14fb7e89c7a9cfe450) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Images/ground_V.png using Guid(4c280a70b4dceb14fb7e89c7a9cfe450) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '90d983ec9a38e58c38aac1020d16f240') in 0.260194 seconds 
+  Time since last request: 0.000063 seconds.
+  path: Assets/Audio/SE/ゲームボタンSE.mp3
+  artifactKey: Guid(f945a49e987b47d45a94505a93f3c23c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Audio/SE/ゲームボタンSE.mp3 using Guid(f945a49e987b47d45a94505a93f3c23c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f9124e29494a2cbfba0b3bb5bfe6a743') in 0.022655 seconds 
 Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
 AssetImportWorker is now disconnected from the server
 Process exiting

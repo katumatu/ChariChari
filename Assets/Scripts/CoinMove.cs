@@ -41,14 +41,14 @@ public class CoinMove : MonoBehaviour
             // 上下にふわふわ浮かせる
             newY = startPos.y + Mathf.Sin(Time.time * floatSpeed) * floatHeight;
 
-            if(player.quickflg == true)
+            if(Player.quickflg == true)
             {
                 // Y軸方向のみを変更するため、第一引数には Vector3.up を指定します。
                 Vector3 newPosition = new Vector3(transform.position.x - 0.2f, newY, transform.position.z);
                 transform.Translate(newPosition - transform.position, Space.World);
             }
 
-            if(player.quickflg == false)
+            if(Player.quickflg == false)
             {
                 // Y軸方向のみを変更するため、第一引数には Vector3.up を指定します。
                 Vector3 newPosition = new Vector3(transform.position.x - 0.1f, newY, transform.position.z);

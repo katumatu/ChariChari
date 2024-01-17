@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
 
-public class player : MonoBehaviour
+public class Player : MonoBehaviour
 {
     public float jumpForce = 10f; // ジャンプ力
     private Rigidbody2D rb2d;
@@ -92,7 +92,7 @@ public class player : MonoBehaviour
         }
         
         playerX = Mathf.FloorToInt(transform.position.x) +3;
-        GameObject.Find("Score").GetComponent<scoreMan>().AddScore();
+        GameObject.Find("Score").GetComponent<ScoreMan>().AddScore();
 
         
         // タイマーを更新
@@ -137,7 +137,7 @@ public class player : MonoBehaviour
             //衝突した相手のゲームオブジェクトを破棄する
             Destroy(coll.gameObject);
             //CanvasオブジェクトのUIControllerコンポーネントを取得し、スコアを加算する
-            GameObject.Find("Score").GetComponent<scoreMan>().CoinScore();
+            GameObject.Find("Score").GetComponent<ScoreMan>().CoinScore();
         }
 
         if(coll.gameObject.name == "Ground(Clone)")
@@ -183,7 +183,7 @@ public class player : MonoBehaviour
             }
         }
 
-        if(coll.gameObject.name == "Timer(Clone)")
+        if(coll.gameObject.name == "Timer(Clone)" || coll.gameObject.name == "Timer")
         {
             //Time.timeScale = 2;
             quickflg = true;

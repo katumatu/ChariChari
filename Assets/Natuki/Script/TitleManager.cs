@@ -1,31 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI; //UIŠÖŒW‚Ìˆ×‚Ìƒ‰ƒCƒuƒ‰ƒŠ
-using UnityEngine.SceneManagement; //ƒ[ƒhŠÖŒWã•K—v‚Èƒ‰ƒCƒuƒ‰ƒŠ
+using UnityEngine.UI; //UIï¿½ÖŒWï¿½Ìˆ×‚Ìƒï¿½ï¿½Cï¿½uï¿½ï¿½ï¿½ï¿½
+using UnityEngine.SceneManagement; //ï¿½ï¿½ï¿½[ï¿½hï¿½ÖŒWï¿½ï¿½Kï¿½vï¿½Èƒï¿½ï¿½Cï¿½uï¿½ï¿½ï¿½ï¿½
 
 /// <summary>
-/// system\‘¢‘Ì•Ï”‚Ğ‚Æ‚Ü‚Æ‚ß‚µ‚Ü‚µ‚½B
+/// systemï¿½\ï¿½ï¿½ï¿½Ì•Ïï¿½ï¿½Ğ‚Æ‚Ü‚Æ‚ß‚ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½ï¿½B
 /// </summary>
 [System.Serializable]
 public struct SystemDataSet
 {
-    public GameObject startButton; //ŠJnƒ{ƒ^ƒ“
-    public GameObject exitButton; //I—¹ƒ{ƒ^ƒ“
-    public Text startText; //ŠJnƒ{ƒ^ƒ““à‚É‚ ‚éƒeƒLƒXƒg
+    public GameObject startButton; //ï¿½Jï¿½nï¿½{ï¿½^ï¿½ï¿½
+    public GameObject exitButton; //ï¿½Iï¿½ï¿½ï¿½{ï¿½^ï¿½ï¿½
+    public Text startText; //ï¿½Jï¿½nï¿½{ï¿½^ï¿½ï¿½ï¿½ï¿½ï¿½É‚ï¿½ï¿½ï¿½eï¿½Lï¿½Xï¿½g
     public string LodedName;
 
 }
 
 public class TitleManager : MonoBehaviour
 {
-    //“_–Åˆ—ˆ—ŠÖ˜A•Ï”
+    //ï¿½_ï¿½Åï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö˜Aï¿½Ïï¿½
     float time;
     float speed = 0.3f;
 
-    public SystemDataSet system; //À‘ÌéŒ¾
+    public SystemDataSet system; //ï¿½ï¿½ï¿½ÌéŒ¾
 
-    //ƒQ[ƒ€‚ÌƒCƒ[ƒWƒvƒŒƒCƒ„[‚Ìì¬
+    //ï¿½Qï¿½[ï¿½ï¿½ï¿½ÌƒCï¿½ï¿½ï¿½[ï¿½Wï¿½vï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½[ï¿½Ìì¬
     [SerializeField] Transform player;
     Vector3 startPos;
     Vector3 moveVec;
@@ -33,27 +33,32 @@ public class TitleManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        startPos = player.position; //Å‰‚ÌˆÊ’u•Û‘¶
+        startPos = player.position; //ï¿½Åï¿½ï¿½ÌˆÊ’uï¿½Û‘ï¿½
         Debug.Log($"startPos = {startPos}");
     }
 
-    public void StartBUtton()
+    public void StartButton()
     {
         SceneManager.LoadScene(system.LodedName);
     }
 
+    public void ExitButton()
+    {
+        Application.Quit();
+    }
+
     /// <summary>
-    /// “_–Åˆ—ŠÖ”
+    /// ï¿½_ï¿½Åï¿½ï¿½ï¿½ï¿½Öï¿½
     /// </summary>
     /// <param name="color"></param>
     /// <returns></returns>
     Color Text_Invicivil(Color color)
     {
-        time += Time.deltaTime * 4.0f * speed; //“_–Å‚·‚é‘¬“xİ’è
-        color.a = Mathf.Sin(time); //ƒ¿’l‚ğ•ÏX‚µ‚Ä“_–Åˆ—‚ğ‘£‚·
+        time += Time.deltaTime * 4.0f * speed; //ï¿½_ï¿½Å‚ï¿½ï¿½é‘¬ï¿½xï¿½İ’ï¿½
+        color.a = Mathf.Sin(time); //ï¿½ï¿½ï¿½lï¿½ï¿½ÏXï¿½ï¿½ï¿½Ä“_ï¿½Åï¿½ï¿½ï¿½ï¿½ğ‘£‚ï¿½
 
 
-        return color; //‚±‚¿‚ç‚É•Ô‚·
+        return color; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É•Ô‚ï¿½
     }
 
 
@@ -71,7 +76,7 @@ public class TitleManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        system.startText.color = Text_Invicivil(system.startText.color); //•Ô‚µ‚½’l‚É‘ã“ü‚µŠÖ”‚É“n‚·
+        system.startText.color = Text_Invicivil(system.startText.color); //ï¿½Ô‚ï¿½ï¿½ï¿½ï¿½lï¿½É‘ï¿½ï¿½ï¿½ï¿½ï¿½Öï¿½ï¿½É“nï¿½ï¿½
         
     }
 

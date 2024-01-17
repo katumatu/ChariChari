@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class camera : MonoBehaviour
+public class Camera : MonoBehaviour
 {
     // 目標のフレームレート
     public int targetFrameRate = 60;

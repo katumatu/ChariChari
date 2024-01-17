@@ -13,12 +13,12 @@ public class GroundMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(player.quickflg == true)
+        if(Player.quickflg == true)
         {
             transform.Translate(-0.2f, 0, 0);
         }
 
-        if(player.quickflg == false)
+        if(Player.quickflg == false)
         {
             //transform.rotation = Quaternion.Euler(0, 0, 15);
             transform.Translate(-0.1f, 0, 0);

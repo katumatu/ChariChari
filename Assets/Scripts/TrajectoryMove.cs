@@ -53,9 +53,18 @@ public class TrajectoryMove : MonoBehaviour
             Destroy(gameObject);
         }
 
+        if(player.quickflg == true)
+        {
+            transform.Translate(-0.2f, 0, 0, Space.World);
+        }
 
+        if(player.quickflg == false)
+        {
+            //transform.rotation = Quaternion.Euler(0, 0, 15);
+            transform.Translate(-0.1f, 0, 0, Space.World);
+        }
         //transform.rotation = Quaternion.Euler(0, 0, 15);
-        transform.Translate(-0.1f, 0, 0, Space.World);
+        //transform.Translate(-0.1f, 0, 0, Space.World);
         //軌跡の位置が-14よりも左に移動していた場合、
         if(transform.position.x < -14.0f)
         {

@@ -20,48 +20,48 @@ public class Ranking : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if(score01 >= ScoreMan.score)
+        if(score01 >= scoreMan.score)
         {
-            if(score02 >= ScoreMan.score)
+            if(score02 >= scoreMan.score)
             {
-                if(score03 >= ScoreMan.score)
+                if(score03 >= scoreMan.score)
                 {
-                    if(score04 >= ScoreMan.score && score05 < ScoreMan.score)
+                    if(score04 >= scoreMan.score && score05 < scoreMan.score)
                     {
-                        score05 = ScoreMan.score;
+                        score05 = scoreMan.score;
                     }
 
-                    if(score04 < ScoreMan.score)
+                    if(score04 < scoreMan.score)
                     {
                         score05 = score04;
-                        score04 = ScoreMan.score;
+                        score04 = scoreMan.score;
                     }
                 }
 
-                if(score03 < ScoreMan.score)
+                if(score03 < scoreMan.score)
                 {
                     score05 = score04;
                     score04 = score03;
-                    score03 = ScoreMan.score;
+                    score03 = scoreMan.score;
                 }
             }
 
-            if(score02 < ScoreMan.score)
+            if(score02 < scoreMan.score)
             {
                 score05 = score04;
                 score04 = score03;
                 score03 = score02;
-                score02 = ScoreMan.score;
+                score02 = scoreMan.score;
             }
         }
         
-        if(score01 < ScoreMan.score)
+        if(score01 < scoreMan.score)
         {
             score05 = score04;
             score04 = score03;
             score03 = score02;
             score02 = score01;
-            score01 = ScoreMan.score;
+            score01 = scoreMan.score;
         }
 
         //スコアテキストのゲームオブジェクトを検索して取得する

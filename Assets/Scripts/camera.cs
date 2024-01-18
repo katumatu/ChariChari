@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Camera : MonoBehaviour
+public class camera : MonoBehaviour
 {
     // 目標のフレームレート
     public int targetFrameRate = 60;
@@ -11,7 +11,7 @@ public class Camera : MonoBehaviour
     private float idleThreshold = 15f;  // アイドルとみなす閾値（秒）
     private bool isTimerRunning = true;  // タイマーが動作中かどうか
 
-    public Transform targetPlayer;  // プレイヤーのTransformを格納する変数
+    public Transform targetplayer;  // プレイヤーのTransformを格納する変数
     public float yOffset = -10.0f;     // プレイヤーからのY軸のオフセット
 
     private void Awake()
@@ -97,7 +97,8 @@ public class Camera : MonoBehaviour
             //アイドル時間が閾値を超えた場合、titleSceneSceneに戻る
             if(idleTime >= idleThreshold)
             {
-                if(SceneManager.GetActiveScene().name != "titleScene"){
+                if(SceneManager.GetActiveScene().name != "titleScene")
+                {
                     SceneManager.LoadScene("titleScene");
                 }
             }
@@ -112,11 +113,11 @@ public class Camera : MonoBehaviour
         switch (SceneManager.GetActiveScene().name)
         {
             case "Game":
-                if(targetPlayer.position.y > 0)
+                if(targetplayer.position.y > 0)
                 {
-                    if(targetPlayer.position.y < 4)
+                    if(targetplayer.position.y < 4)
                     // プレイヤーの位置にカメラを追従させる（Y軸のみ）
-                    transform.position = new Vector3(transform.position.x, targetPlayer.position.y, transform.position.z);
+                    transform.position = new Vector3(transform.position.x, targetplayer.position.y, transform.position.z);
                 }
                 break;
             default:

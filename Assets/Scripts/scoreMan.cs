@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using System.Collections;
 using UnityEngine.SceneManagement;
 
-public class ScoreMan : MonoBehaviour
+public class scoreMan : MonoBehaviour
 {
     //スクリプトに格納するもの、変数
     int BaceScore = 0;
@@ -49,12 +49,12 @@ public class ScoreMan : MonoBehaviour
                     case "Game":
                         // フレーム数をカウント
                         framesPassed++;
-                        if(Player.quickflg == true)
+                        if(player.quickflg == true)
                         {
                             framesPerIncrement = 5;
                         }
 
-                        if(Player.quickflg == false)
+                        if(player.quickflg == false)
                         {
                             framesPerIncrement = 10;
                         }
@@ -77,7 +77,7 @@ public class ScoreMan : MonoBehaviour
 
     public void AddScore()
     {
-        score = BaceScore + (Player.playerX);
+        score = BaceScore + (player.playerX);
     }
 
     public void CoinScore()

@@ -1,6 +1,6 @@
 Using pre-set license
 Built from '2021.3/staging' branch; Version is '2021.3.1f1 (3b70a0754835) revision 3895456'; Using compiler version '192829333'; Build Type 'Release'
-OS: 'Windows 10  (10.0.19045) 64bit Professional' Language: 'ja' Physical Memory: 32585 MB
+OS: 'Windows 11  (10.0.22621) 64bit Professional' Language: 'ja' Physical Memory: 32585 MB
 BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
 
 COMMAND LINE ARGUMENTS:
@@ -11,13 +11,13 @@ C:\Program Files\Unity\Hub\Editor\2021.3.1f1\Editor\Unity.exe
 -name
 AssetImportWorker3
 -projectPath
-C:/Users/katsu/OneDrive/ドキュメント/GitHub/ChariChari
+C:/Document/GitHub/ChariChari
 -logFile
 Logs/AssetImportWorker3.log
 -srvPort
-62018
-Successfully changed project path to: C:/Users/katsu/OneDrive/ドキュメント/GitHub/ChariChari
-C:/Users/katsu/OneDrive/ドキュメント/GitHub/ChariChari
+52187
+Successfully changed project path to: C:/Document/GitHub/ChariChari
+C:/Document/GitHub/ChariChari
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
     "memorysetup-bucket-allocator-granularity=16"
     "memorysetup-bucket-allocator-bucket-count=8"
@@ -47,11 +47,11 @@ C:/Users/katsu/OneDrive/ドキュメント/GitHub/ChariChari
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Refreshing native plugins compatible for Editor in 88.28 ms, found 4 plugins.
+Refreshing native plugins compatible for Editor in 88.88 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2021.3.1f1 (3b70a0754835)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2021.3.1f1/Editor/Data/Resources/UnitySubsystems
-[Subsystems] Discovering subsystems at path C:/Users/katsu/OneDrive/ドキュメント/GitHub/ChariChari/Assets
+[Subsystems] Discovering subsystems at path C:/Document/GitHub/ChariChari/Assets
 GfxDevice: creating device client; threaded=0; jobified=0
 Direct3D:
     Version:  Direct3D 11.0 [level 11.1]
@@ -63,93 +63,93 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2021.3.1f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2021.3.1f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2021.3.1f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56736
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56556
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.1f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.1f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.013471 seconds.
+Registered in 0.010380 seconds.
 Native extension for WindowsStandalone target not found
 Native extension for Android target not found
-Refreshing native plugins compatible for Editor in 81.90 ms, found 4 plugins.
+Refreshing native plugins compatible for Editor in 83.92 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.688 seconds
+- Completed reload, in  0.682 seconds
 Domain Reload Profiling:
-	ReloadAssembly (688ms)
-		BeginReloadAssembly (80ms)
+	ReloadAssembly (682ms)
+		BeginReloadAssembly (78ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (1ms)
-		EndReloadAssembly (484ms)
-			LoadAssemblies (76ms)
+		EndReloadAssembly (472ms)
+			LoadAssemblies (75ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (112ms)
+			SetupTypeCache (102ms)
 			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (27ms)
-			SetupLoadedEditorAssemblies (292ms)
+			RebuildScriptCaches (31ms)
+			SetupLoadedEditorAssemblies (288ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (56ms)
+				InitializePlatformSupportModulesInManaged (60ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (82ms)
+				RefreshPlugins (84ms)
 				BeforeProcessingInitializeOnLoad (1ms)
-				ProcessInitializeOnLoadAttributes (105ms)
-				ProcessInitializeOnLoadMethodAttributes (46ms)
+				ProcessInitializeOnLoadAttributes (97ms)
+				ProcessInitializeOnLoadMethodAttributes (45ms)
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.008575 seconds.
+Registered in 0.018749 seconds.
 Begin MonoManager ReloadAssembly
-Symbol file LoadedFromMemory doesn't match image C:\Users\katsu\OneDrive\ドキュメント\GitHub\ChariChari\Library\PackageCache\com.unity.visualscripting@1.7.6\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Document\GitHub\ChariChari\Library\PackageCache\com.unity.visualscripting@1.7.6\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
 Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file LoadedFromMemory doesn't match image C:\Users\katsu\OneDrive\ドキュメント\GitHub\ChariChari\Library\PackageCache\com.unity.visualscripting@1.7.6\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Symbol file LoadedFromMemory doesn't match image C:\Document\GitHub\ChariChari\Library\PackageCache\com.unity.visualscripting@1.7.6\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
 Native extension for WindowsStandalone target not found
 Native extension for Android target not found
-Refreshing native plugins compatible for Editor in 83.36 ms, found 4 plugins.
+Refreshing native plugins compatible for Editor in 82.28 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.314 seconds
+- Completed reload, in  1.174 seconds
 Domain Reload Profiling:
-	ReloadAssembly (1315ms)
-		BeginReloadAssembly (239ms)
+	ReloadAssembly (1175ms)
+		BeginReloadAssembly (222ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (6ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (132ms)
-		EndReloadAssembly (949ms)
-			LoadAssemblies (116ms)
+			CreateAndSetChildDomain (124ms)
+		EndReloadAssembly (837ms)
+			LoadAssemblies (95ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (292ms)
+			SetupTypeCache (215ms)
 			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (56ms)
-			SetupLoadedEditorAssemblies (444ms)
+			RebuildScriptCaches (53ms)
+			SetupLoadedEditorAssemblies (430ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (16ms)
+				InitializePlatformSupportModulesInManaged (13ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (83ms)
-				BeforeProcessingInitializeOnLoad (100ms)
+				RefreshPlugins (82ms)
+				BeforeProcessingInitializeOnLoad (92ms)
 				ProcessInitializeOnLoadAttributes (197ms)
-				ProcessInitializeOnLoadMethodAttributes (35ms)
-				AfterProcessingInitializeOnLoad (12ms)
+				ProcessInitializeOnLoadMethodAttributes (36ms)
+				AfterProcessingInitializeOnLoad (10ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (5ms)
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
-Refreshing native plugins compatible for Editor in 1.49 ms, found 4 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
+Refreshing native plugins compatible for Editor in 1.02 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3928 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 34 unused Assets / (55.6 KB). Loaded Objects now: 4390.
-Memory consumption went from 151.9 MB to 151.9 MB.
-Total: 4.245400 ms (FindLiveObjects: 0.363300 ms CreateObjectMapping: 0.395200 ms MarkObjects: 3.408500 ms  DeleteObjects: 0.077500 ms)
+Unloading 3942 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 34 unused Assets / (56.1 KB). Loaded Objects now: 4403.
+Memory consumption went from 155.0 MB to 154.9 MB.
+Total: 2.931100 ms (FindLiveObjects: 0.272500 ms CreateObjectMapping: 0.226100 ms MarkObjects: 2.354800 ms  DeleteObjects: 0.076800 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
@@ -163,46 +163,16 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 140380.868912 seconds.
+  Time since last request: 30337.152982 seconds.
   path: Assets/Images/Coin.png
   artifactKey: Guid(c5d756ca1e81ca840b38a717f3950e24) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Images/Coin.png using Guid(c5d756ca1e81ca840b38a717f3950e24) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7254d1c34541cb53ea75b230702801d6') in 0.183970 seconds 
+Start importing Assets/Images/Coin.png using Guid(c5d756ca1e81ca840b38a717f3950e24) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a50f32c1e87dfeb5a67897efd0fc016b') in 0.117585 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000033 seconds.
-  path: Assets/Images/S__142008325.jpg
-  artifactKey: Guid(5e51d14f9f360be4181f5a5a1f81942a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Images/S__142008325.jpg using Guid(5e51d14f9f360be4181f5a5a1f81942a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ea6e75762e4a77ab9d490a03a712691a') in 0.052177 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000044 seconds.
-  path: Assets/Images/PL01.png
-  artifactKey: Guid(38f589059d7425f4d8931e342ca9854a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Images/PL01.png using Guid(38f589059d7425f4d8931e342ca9854a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e14c54f4e3d18d6daf2162e2b851652a') in 0.038759 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000034 seconds.
-  path: Assets/Images/tyari.png
-  artifactKey: Guid(da6420f2b64eaee40834660f4986a871) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Images/tyari.png using Guid(da6420f2b64eaee40834660f4986a871) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dd4f93be160464bf7888e58593e35387') in 0.021582 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000024 seconds.
-  path: Assets/Images/enemy.png
-  artifactKey: Guid(a535452a90bb2fa46abc4fb933422c36) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Images/enemy.png using Guid(a535452a90bb2fa46abc4fb933422c36) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '475cbdbfc4fd872b2d221fbe343e3b54') in 0.024051 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000026 seconds.
-  path: Assets/Images/PL02.png
-  artifactKey: Guid(9e68b00b5ae7ff54bb4240d35546c48c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Images/PL02.png using Guid(9e68b00b5ae7ff54bb4240d35546c48c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '81c04159cdffd1e2329b0f5df129f4c1') in 0.025423 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000019 seconds.
-  path: Assets/Images/チャリチャリ_遊び方.png
-  artifactKey: Guid(00a4b5691224ef44fba9d0e29b3d5c69) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Images/チャリチャリ_遊び方.png using Guid(00a4b5691224ef44fba9d0e29b3d5c69) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '857a3b53501688c5247b47cd9d521024') in 0.145803 seconds 
+  Time since last request: 0.000031 seconds.
+  path: Assets/Images/timer.png
+  artifactKey: Guid(b58fd05f0778fff42b6756cce931f8cb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Images/timer.png using Guid(b58fd05f0778fff42b6756cce931f8cb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '22c3cb1d3d29e26aec9acc96997ad9d2') in 0.174329 seconds 
 Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
 AssetImportWorker is now disconnected from the server
 Process exiting

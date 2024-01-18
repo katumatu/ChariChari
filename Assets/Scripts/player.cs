@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
 
-public class Player : MonoBehaviour
+public class player : MonoBehaviour
 {
     public float jumpForce = 10f; // ジャンプ力
     private Rigidbody2D rb2d;
@@ -25,6 +25,7 @@ public class Player : MonoBehaviour
 
     public GameObject TraPrefab; //軌跡のプレハブ
     public static bool quickflg = false;
+    public AudioClip ItemSE; //効果音クリップ
     
 
     // Start is called before the first frame update
@@ -92,7 +93,7 @@ public class Player : MonoBehaviour
         }
         
         playerX = Mathf.FloorToInt(transform.position.x) +3;
-        GameObject.Find("Score").GetComponent<ScoreMan>().AddScore();
+        GameObject.Find("Score").GetComponent<scoreMan>().AddScore();
 
         
         // タイマーを更新
@@ -137,10 +138,10 @@ public class Player : MonoBehaviour
             //衝突した相手のゲームオブジェクトを破棄する
             Destroy(coll.gameObject);
             //CanvasオブジェクトのUIControllerコンポーネントを取得し、スコアを加算する
-            GameObject.Find("Score").GetComponent<ScoreMan>().CoinScore();
+            GameObject.Find("Score").GetComponent<scoreMan>().CoinScore();
         }
 
-        if(coll.gameObject.name == "Ground(Clone)")
+        if(coll.gameObject.name == "ground(Clone)")
         {
             // 接触相手の方向が上方向であれば何もしない
             if(coll.transform.position.y < transform.position.y)
@@ -187,6 +188,8 @@ public class Player : MonoBehaviour
         {
             //Time.timeScale = 2;
             quickflg = true;
+            //指定した位置でオーディオクリップを再生する。z座標の変更でボリュームを調節
+            AudioSource.PlayClipAtPoint(ItemSE, new Vector3(0, 0, -9));
             Invoke("SlowMethod", 5.0f); //秒後にディレイメソッドを実行
             //衝突した相手のゲームオブジェクトを破棄する
             Destroy(coll.gameObject);

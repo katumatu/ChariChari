@@ -40,7 +40,7 @@ public class TimerMove : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D coll)
     {
-        if(coll.gameObject.name == "Ground(Clone)")
+        if(coll.gameObject.name == "ground(Clone)")
         {
             isGrounded = true;
             transform.position = new Vector3(transform.position.x, transform.position.y + 1, transform.position.z);

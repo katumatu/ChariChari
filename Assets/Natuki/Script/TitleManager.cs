@@ -67,7 +67,7 @@ public class TitleManager : MonoBehaviour
 
         player.Translate(0.05f ,0,0);
 
-        if (player.position.x >= 8.10f)
+        if (player.position.x >= 10.0f)
         {
             player.position = startPos;
         }
@@ -77,7 +77,7 @@ public class TitleManager : MonoBehaviour
     void Update()
     {
         system.startText.color = Text_Invicivil(system.startText.color); //�Ԃ����l�ɑ�����֐��ɓn��
-        
+
     }
 
     private void FixedUpdate()

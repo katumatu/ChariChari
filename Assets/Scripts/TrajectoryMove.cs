@@ -7,7 +7,8 @@ public class TrajectoryMove : MonoBehaviour
 
     public float fadeSpeed; // 透明度を変更する速さ
     private SpriteRenderer spriteRenderer;
-    float rotSpeed; //隕石の回転速度
+    float rotSpeed; //回転速度
+    private float Tspeed;
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +24,7 @@ public class TrajectoryMove : MonoBehaviour
         this.fadeSpeed = 1f + 5f * Random.value; //回転速度をランダムに設定
         this.rotSpeed = 10f + 15f * Random.value; //回転速度をランダムに設定
 
+        Tspeed = -0.1f;
     }
 
     // Update is called once per frame
@@ -55,13 +57,12 @@ public class TrajectoryMove : MonoBehaviour
 
         if(player.quickflg == true)
         {
-            transform.Translate(-0.2f, 0, 0, Space.World);
+            Tspeed = -0.2f - ((float)scoreMan.score / 500000);
         }
 
         if(player.quickflg == false)
         {
-            //transform.rotation = Quaternion.Euler(0, 0, 15);
-            transform.Translate(-0.1f, 0, 0, Space.World);
+            Tspeed = -0.1f - ((float)scoreMan.score / 500000);
         }
         //transform.rotation = Quaternion.Euler(0, 0, 15);
         //transform.Translate(-0.1f, 0, 0, Space.World);
@@ -72,6 +73,8 @@ public class TrajectoryMove : MonoBehaviour
             Destroy(gameObject);
         }
 
+        //transform.rotation = Quaternion.Euler(0, 0, 15);
+        transform.Translate(Tspeed, 0, 0, Space.World);
         transform.Rotate(0, 0, rotSpeed); //隕石を回転させる
     }
 }

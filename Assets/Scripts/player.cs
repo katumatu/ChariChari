@@ -91,6 +91,11 @@ public class player : MonoBehaviour
         {
             SceneManager.LoadScene("Result", LoadSceneMode.Single);
         }
+
+        if(transform.position.x > 10.0f)
+        {
+            transform.position = new Vector3(transform.position.x -0.2f, transform.position.y, transform.position.z);
+        }
         
         playerX = Mathf.FloorToInt(transform.position.x) +3;
         GameObject.Find("Score").GetComponent<scoreMan>().AddScore();
@@ -129,12 +134,12 @@ public class player : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter2D(Collider2D coll)
+    void OnTriggerStay2D(Collider2D coll)//Enter2D(Collider2D coll)
     {
         if(coll.gameObject.name.Contains("Coin"))
         {
             //指定した位置でオーディオクリップを再生する。z座標の変更でボリュームを調節
-            AudioSource.PlayClipAtPoint(CoinSE, new Vector3(0, 0, -8));
+            AudioSource.PlayClipAtPoint(CoinSE, new Vector3(0, 0, -9));
             //衝突した相手のゲームオブジェクトを破棄する
             Destroy(coll.gameObject);
             //CanvasオブジェクトのUIControllerコンポーネントを取得し、スコアを加算する
@@ -146,15 +151,15 @@ public class player : MonoBehaviour
             // 接触相手の方向が上方向であれば何もしない
             if(coll.transform.position.y < transform.position.y)
             {
-                if(rb2d.velocity.y > 0.0f && AJ >= 1)
+                if(rb2d.velocity.y > 0.0f && AJ == 2)
                 {
-                    isGrounded = false;
                     AJ = 2;
                 }
 
                 // ジャンプ中にも接地している場合、ジャンプを許可する
                 else if(rb2d.velocity.y <= 0.0f )
-                {                        isGrounded = true;
+                {
+                    isGrounded = true;
                     AJ = 0;
                 }
 
@@ -189,7 +194,7 @@ public class player : MonoBehaviour
             //Time.timeScale = 2;
             quickflg = true;
             //指定した位置でオーディオクリップを再生する。z座標の変更でボリュームを調節
-            AudioSource.PlayClipAtPoint(ItemSE, new Vector3(0, 0, -9));
+            AudioSource.PlayClipAtPoint(ItemSE, new Vector3(0, 0, -10));
             Invoke("SlowMethod", 5.0f); //秒後にディレイメソッドを実行
             //衝突した相手のゲームオブジェクトを破棄する
             Destroy(coll.gameObject);
@@ -213,7 +218,7 @@ public class player : MonoBehaviour
         {
             rb2d.velocity = new Vector2(rb2d.velocity.x, jumpForce);
             isGrounded = false; // ジャンプ中は地面にいない状態にする
-            AudioSource.PlayClipAtPoint(jumpSE, new Vector3(0, 0, -5)); //効果音再生しつつ
+            AudioSource.PlayClipAtPoint(jumpSE, new Vector3(0, 0, -8)); //効果音再生しつつ
             AJ = 1;
             //Debug.Log("通常ジャンプしたよ");
         }
@@ -230,12 +235,12 @@ public class player : MonoBehaviour
         {
             rb2d.velocity = new Vector2(rb2d.velocity.x, jumpForce);
             AJ = 2;
-            AudioSource.PlayClipAtPoint(jumpSE, new Vector3(0, 0, -5)); //効果音再生しつつ
+            AudioSource.PlayClipAtPoint(jumpSE, new Vector3(0, 0, -8)); //効果音再生しつつ
             //Debug.Log("空ジャンしたよ");
         }
     }
 
-    //トラクリ。弾生成に関する処理
+    //トラクリ。軌跡生成に関する処理
     IEnumerator TraCre()
     {
         while (true)

@@ -52,7 +52,7 @@ public class SceneMan : MonoBehaviour
                 {
                     if (SceneManager.GetActiveScene().name == "Result")
                     {
-                        AudioSource.PlayClipAtPoint(click, new Vector3(0, 0, -5)); //効果音再生しつつ
+                        AudioSource.PlayClipAtPoint(click, new Vector3(0, 0, -7)); //効果音再生しつつ
                         StartCoroutine(Resultbatton()); //シーン切り替えに関するコルーチン
                     }
                 }
@@ -74,7 +74,7 @@ public class SceneMan : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(1.0f);
+            yield return new WaitForSeconds(0.5f);
             //ResultSceneからTitleSceneへシーンを切り替える
             SceneManager.LoadScene("titleScene", LoadSceneMode.Single); 
         }

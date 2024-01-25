@@ -13,6 +13,7 @@ public class CoinMove : MonoBehaviour
     int increase = 0;
     private bool isGrounded;
     float newY = 0;
+    private float Cspeed;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +25,7 @@ public class CoinMove : MonoBehaviour
             //画面の上部端より少し上から、画面の左端から右端の間でランダムな位置に敵を生成する
             Instantiate(coin, new Vector3(startPos.x + 1.5f, startPos.y, startPos.z), Quaternion.identity);
         }
+        Cspeed = -0.1f;
     }
 
     // Update is called once per frame
@@ -43,17 +45,17 @@ public class CoinMove : MonoBehaviour
 
             if(player.quickflg == true)
             {
-                // Y軸方向のみを変更するため、第一引数には Vector3.up を指定します。
-                Vector3 newPosition = new Vector3(transform.position.x - 0.2f, newY, transform.position.z);
-                transform.Translate(newPosition - transform.position, Space.World);
+                Cspeed = transform.position.x - 0.2f - ((float)scoreMan.score / 500000);
             }
 
             if(player.quickflg == false)
             {
-                // Y軸方向のみを変更するため、第一引数には Vector3.up を指定します。
-                Vector3 newPosition = new Vector3(transform.position.x - 0.1f, newY, transform.position.z);
-                transform.Translate(newPosition - transform.position, Space.World);
+                Cspeed = transform.position.x - 0.1f - ((float)scoreMan.score / 500000);
             }
+
+            // Y軸方向のみを変更するため、第一引数には Vector3.up を指定します。
+            Vector3 newPosition = new Vector3(Cspeed, newY, transform.position.z);
+            transform.Translate(newPosition - transform.position, Space.World);
         }
     }
 
@@ -63,7 +65,7 @@ public class CoinMove : MonoBehaviour
         {
             isGrounded = true;
             transform.position = new Vector3(transform.position.x, transform.position.y + 1, transform.position.z);
-            startPos = transform.position; // 初期位置を保存
+            startPos = transform.position; // 初期位置を更新
             //Debug.Log("CoinsMove");
         }
 

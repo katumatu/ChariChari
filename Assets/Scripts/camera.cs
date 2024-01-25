@@ -117,7 +117,7 @@ public class camera : MonoBehaviour
                 {
                     if(targetplayer.position.y < 4)
                     // プレイヤーの位置にカメラを追従させる（Y軸のみ）
-                    transform.position = new Vector3(transform.position.x, targetplayer.position.y, transform.position.z);
+                    transform.position = new Vector3(transform.position.x, transform.position.y + ((targetplayer.position.y - transform.position.y) / 2), transform.position.z);
                 }
                 break;
             default:

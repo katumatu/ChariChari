@@ -67,7 +67,7 @@ public class TitleManager : MonoBehaviour
 
         player.Translate(0.05f ,0,0);
 
-        if (player.position.x >= 11.0f)
+        if (player.position.x >= 10.5f)
         {
             player.position = startPos;
         }

@@ -87,12 +87,12 @@ public class player : MonoBehaviour
             SceneManager.LoadScene("Result", LoadSceneMode.Single);
         }
 
-        if(transform.position.x < -10.0f)
+        if(transform.position.x < -8.0f)
         {
             SceneManager.LoadScene("Result", LoadSceneMode.Single);
         }
 
-        if(transform.position.x > 10.0f)
+        if(transform.position.x > 8.0f)
         {
             transform.position = new Vector3(transform.position.x -0.2f, transform.position.y, transform.position.z);
         }

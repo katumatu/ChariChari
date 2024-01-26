@@ -8,7 +8,7 @@ public class camera : MonoBehaviour
     // 目標のフレームレート
     public int targetFrameRate = 60;
     private float idleTime = 0f;  // アイドル時間のカウント
-    private float idleThreshold = 15f;  // アイドルとみなす閾値（秒）
+    private float idleThreshold = 30.0f;  // アイドルとみなす閾値（秒）
     private bool isTimerRunning = true;  // タイマーが動作中かどうか
 
     public Transform targetplayer;  // プレイヤーのTransformを格納する変数

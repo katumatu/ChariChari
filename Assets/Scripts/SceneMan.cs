@@ -16,20 +16,41 @@ public class SceneMan : MonoBehaviour
 
     private bool isExplan = false;
 
+    [SerializeField]
+    GameObject Loading;
+
+    public float rotationSpeed = 40.0f; // 回転速度 (度/秒)
+
+    [SerializeField]
+    GameObject asoA;
+
+    [SerializeField]
+    GameObject asoB;
+    int ASO = 0;
+    private AudioSource audioSource;
+
     //Start is called before the first frame update
     void Start()
     {
         if (SceneManager.GetActiveScene().name == "Explan")
         {
             TabletTouch.SetActive(false);
+            Loading.SetActive(false);
+            asoA.SetActive(true);
+            asoB.SetActive(false);
+
+            isExplan = false;
+            // 一秒後に操作を受け付けるためにInvokeを使用
+            Invoke("EnableInput", 1.0f);
+            ASO = 0;
         }
-        
-        isExplan = false;
         //ポインターデータの初期化
         pointer = new PointerEventData(EventSystem.current);
 
-        // 一秒後に操作を受け付けるためにInvokeを使用
-        Invoke("EnableInput", 2.0f);
+        // コルーチンを開始
+        StartCoroutine(RotateLoading());
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -52,7 +73,8 @@ public class SceneMan : MonoBehaviour
                 {
                     if (SceneManager.GetActiveScene().name == "Result")
                     {
-                        AudioSource.PlayClipAtPoint(click, new Vector3(0, 0, -7)); //効果音再生しつつ
+                        audioSource.PlayOneShot(click, 1.0f);
+                        //AudioSource.PlayClipAtPoint(click, new Vector3(0, 0, -7)); //効果音再生しつつ
                         StartCoroutine(Resultbatton()); //シーン切り替えに関するコルーチン
                     }
                 }
@@ -62,8 +84,23 @@ public class SceneMan : MonoBehaviour
             {
                 if (isExplan == true)
                 {
-                    // シーンの切り替え
-                    SceneManager.LoadScene("Game", LoadSceneMode.Single);
+                    if (ASO == 1)
+                    {
+                        // シーンの切り替え
+                        SceneManager.LoadScene("Game", LoadSceneMode.Single);
+                        TabletTouch.SetActive(false);
+                        Loading.SetActive(true);
+                    }
+
+                    if (ASO == 0)
+                    {
+                        TabletTouch.SetActive(false);
+                        asoA.SetActive(false);
+                        asoB.SetActive(true);
+                        Invoke("EnableInput", 1.0f);
+                        isExplan = false;
+                        ASO = 1;
+                    }
                 }
             }
         }
@@ -74,6 +111,7 @@ public class SceneMan : MonoBehaviour
     {
         while (true)
         {
+            Loading.SetActive(true);
             yield return new WaitForSeconds(0.5f);
             //ResultSceneからTitleSceneへシーンを切り替える
             SceneManager.LoadScene("titleScene", LoadSceneMode.Single); 
@@ -86,7 +124,20 @@ public class SceneMan : MonoBehaviour
         {
             TabletTouch.SetActive(true);
             isExplan = true;
-            Debug.Log("Explanだよ");
-        } 
+            //Debug.Log("Explanだよ");
+        }
+    }
+
+    private IEnumerator RotateLoading()
+    {
+        while (true)
+        {
+            // 現在の回転を取得し、40度回転させる
+            Vector3 currentRotation = Loading.transform.rotation.eulerAngles;
+            Loading.transform.rotation = Quaternion.Euler(new Vector3(currentRotation.x, currentRotation.y, currentRotation.z - 40f));
+
+            // 0.5秒待つ
+            yield return new WaitForSeconds(0.1f);
+        }
     }
 }
